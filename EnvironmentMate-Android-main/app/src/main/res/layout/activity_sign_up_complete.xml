@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.mtjin.envmate.views.sign_up.sign_up_complete.SignUpCompleteViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.sign_up.sign_up_complete.SignUpCompleteActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_complete_tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="13dp"
+            android:text="취소"
+            android:textColor="@color/dark_gray_5C5C5C"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_complete_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textColor="@color/dark_gray_333333"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_complete_tv_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sign_up_complete_tv_cancel" />
+
+        <View
+            android:id="@+id/sign_up_complete_view_top"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/light_gray_F5F5F5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_complete_tv_cancel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="검토 후 추후에\n연락드리겠습니다.\n감사합니다."
+            android:textColor="@color/dark_gray_333333"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@id/sign_up_complete_btn_consent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_complete_view_top" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sign_up_complete_btn_consent"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/bg_btn_solid_dark_gray_333333_radius_8dp"
+            android:onClick="@{()->vm.goLogin()}"
+            android:text="로그인 하기"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

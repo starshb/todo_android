@@ -1,0 +1,36 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mtjin.envmate.views.main.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="com.mtjin.envmate.views.main.chart.ChartFragment"
+        android:label="fragment_chart"
+        tools:layout="@layout/fragment_chart">
+        <action
+            android:id="@+id/action_chartFragment_to_photoZoomFragment"
+            app:destination="@id/photoZoomFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.mtjin.envmate.views.main.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/photoZoomFragment"
+        android:name="com.mtjin.envmate.views.photo_zoom.PhotoZoomFragment"
+        android:label="fragment_photo_zoom"
+        tools:layout="@layout/fragment_photo_zoom">
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+    </fragment>
+</navigation>

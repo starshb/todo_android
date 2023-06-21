@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "427865033703",
+    "project_id": "envmate-cdd2a",
+    "storage_bucket": "envmate-cdd2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427865033703:android:ac9960a86621cf4dbd0b42",
+        "android_client_info": {
+          "package_name": "com.mtjin.envmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427865033703-l32n5renra6casr26gpd36icriiqqr4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoluVr11JDvvRNXWOs4swaZsIlDuGYUeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427865033703-l32n5renra6casr26gpd36icriiqqr4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

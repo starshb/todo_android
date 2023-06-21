@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services' // firebase
+}
+
+android {
+    namespace 'com.example.umarry'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.umarry"
+        minSdk 25
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures{
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+
+    /*firebase 연동*/
+    implementation 'com.google.firebase:firebase-analytics-ktx'  // 기본 세팅
+    implementation platform('com.google.firebase:firebase-bom:32.1.1') // 기본세팅
+    implementation 'com.google.firebase:firebase-auth-ktx' // firebase auth
+    implementation 'com.google.firebase:firebase-database-ktx' //firebase realtimeDB
+    implementation("com.google.android.gms:play-services-auth:20.6.0") //구글 로그인
+
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation 'androidx.core:core-splashscreen:1.0.0-alpha01'
+    implementation "com.yuyakaido.android:card-stack-view:2.3.4"
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

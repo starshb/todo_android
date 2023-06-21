@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.mtjin.envmate.views.main.chart.ChartViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".views.main.chart.ChartFragment">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/chart_tv_top_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="7dp"
+                android:text="환경차트"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="21dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/chart_sp_type"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="19.83dp"
+                android:entries="@array/types"
+                android:spinnerMode="dialog"
+                android:textDirection="rtl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/chart_iv_chart_env_score_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:text="당신의 기업의 환경지수는"
+                android:textColor="@color/gray_999999"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chart_tv_top_title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/chart_iv_chart_env_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="72점"
+                android:textColor="@color/black"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chart_iv_chart_env_score_title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/chart_tv_chart_analysis"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="18dp"
+                android:gravity="center"
+                android:text="차트 분석"
+                android:textColor="@color/black_323232"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chart_iv_chart_env_score" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/chart_iv_chart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:adjustViewBounds="true"
+                android:onClick="@{()->vm.goPhotoZoom()}"
+                app:layout_constraintTop_toBottomOf="@id/chart_tv_chart_analysis"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chart_layout_mission"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chart_iv_chart">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/chart_rv_missions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="18dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    bind:setItems="@{vm.industryEnergyList}"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_chart_mission" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/chart_tv_usage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="기업의 에너지 종류별 사용량을 입력해주세요"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/chart_rv_missions" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/chart_et_gas"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/bg_et_stroke_gray_999999_radius_4dp"
+                    android:hint="가스(gas) 사용량 , 단위 : GHG"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="@={vm.gas}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
+                    app:layout_constraintTop_toBottomOf="@id/chart_tv_usage" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/chart_et_other"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/bg_et_stroke_gray_999999_radius_4dp"
+                    android:hint="기타(ohter) 사용량 , 단위 : GHG"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="@={vm.other}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
+                    app:layout_constraintTop_toBottomOf="@id/chart_et_gas" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/chart_et_oil"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/bg_et_stroke_gray_999999_radius_4dp"
+                    android:hint="기름(oil) 사용량 , 단위 : GHG"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="@={vm.oil}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
+                    app:layout_constraintTop_toBottomOf="@id/chart_et_other" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/chart_et_coal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/bg_et_stroke_gray_999999_radius_4dp"
+                    android:hint="석탄(coal) 사용량 , 단위 : GHG"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="@={vm.coal}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
+                    app:layout_constraintTop_toBottomOf="@id/chart_et_oil" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/chart_et_thermal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/bg_et_stroke_gray_999999_radius_4dp"
+                    android:hint="열에너지(thermal) 사용량 , 단위 : GHG"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="@={vm.thermal}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
+                    app:layout_constraintTop_toBottomOf="@id/chart_et_coal" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/chart_et_electric"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/bg_et_stroke_gray_999999_radius_4dp"
+                    android:hint="전기(electric) 사용량 , 단위 : GHG"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="@={vm.electric}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
+                    app:layout_constraintTop_toBottomOf="@id/chart_et_thermal" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/chart_btn_usage_analysis"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="22dp"
+                    android:background="@drawable/bg_btn_solid_dark_gray_333333_radius_8dp"
+                    android:onClick="@{()->vm.requestDetailIndustryEnergy()}"
+                    android:text="사용량 분석"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/chart_et_electric" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chart_layout_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/chart_iv_chart">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/chart_tv_comment_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="한줄 데이터 분석 코멘트"
+                    android:textColor="@color/dark_gray_242424"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/chart_layout_comment_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="27dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="48dp"
+                    android:background="@drawable/bg_solid_gray_fbfafa_radius_8dp"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/chart_tv_comment_title">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/chart_tv_comment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="#303133"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="asdsadsadsadasdasdsadsad\nsadsadsadsadsadsa" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ProgressBar
+                android:id="@+id/pb_loading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:visibility="@{vm.isLoading() ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

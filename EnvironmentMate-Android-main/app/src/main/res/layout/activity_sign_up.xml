@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.mtjin.envmate.views.sign_up.sign_up.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.sign_up.sign_up.SignUpActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="13dp"
+            android:text="취소"
+            android:textColor="@color/dark_gray_5C5C5C"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textColor="@color/dark_gray_333333"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_tv_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sign_up_tv_cancel" />
+
+        <View
+            android:id="@+id/sign_up_view_top"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/light_gray_F5F5F5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_tv_cancel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_tv_agree_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="약관동의"
+            android:textColor="@color/dark_gray_333333"
+            android:textSize="21dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_view_top" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_tv_agree_terms_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="본 서비스를 이용하시려면 전체 약관에 동의해주시기 바랍니다. "
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="@id/sign_up_tv_agree_terms"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_tv_agree_terms" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sign_up_layout_all_agree"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_solid_gray_fbfafa_radius_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/sign_up_tv_agree_terms"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_tv_agree_terms_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="전체 동의"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/sign_up_cb_all_agree"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/selector_agreement"
+                android:button="@null"
+                android:checked="@{vm.allAgree}"
+                android:onClick="@{()->vm.agreeAll()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_tv_required_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="필수약관"
+            android:textColor="@color/gray_999999"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="@id/sign_up_tv_agree_terms"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_layout_all_agree" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_tv_agree_service_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/service_agreement_text"
+            android:textColor="@color/dark_gray_5C5C5C"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="@id/sign_up_tv_agree_terms"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_tv_required_terms" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_tv_agree_service_terms_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="(필수)"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_tv_agree_service_terms"
+            app:layout_constraintStart_toEndOf="@id/sign_up_tv_agree_service_terms"
+            app:layout_constraintTop_toTopOf="@id/sign_up_tv_agree_service_terms" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/sign_up_cb_service_term_agreement"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/selector_agreement"
+            android:button="@null"
+            android:checked="@{vm.serviceAgree}"
+            android:onClick="@{()->vm.agreeService()}"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_tv_agree_service_terms"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sign_up_tv_agree_service_terms" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_tv_personal_info_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:text="@string/personal_info_agreement_text"
+            android:textColor="@color/dark_gray_5C5C5C"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="@id/sign_up_tv_agree_terms"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_tv_agree_service_terms" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_tv_personal_info_terms_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="(필수)"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_tv_personal_info_terms"
+            app:layout_constraintStart_toEndOf="@id/sign_up_tv_personal_info_terms"
+            app:layout_constraintTop_toTopOf="@id/sign_up_tv_personal_info_terms" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/sign_up_cb_personal_info_agreement"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/selector_agreement"
+            android:button="@null"
+            android:checked="@{vm.personalInfoAgree}"
+            android:onClick="@{()->vm.agreePersonalInfo()}"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_tv_personal_info_terms"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sign_up_tv_personal_info_terms" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sign_up_btn_agreement"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/bg_btn_solid_light_gray_ebebeb_radius_8dp"
+            android:onClick="@{()->vm.goPhoneAuth()}"
+            android:stateListAnimator="@null"
+            android:text="동의"
+            android:textColor="@color/gray_BCBCBC"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:onAgreementBackground="@{vm.allAgree}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

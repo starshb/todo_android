@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pg">
+        <item>KCP</item>
+        <item>다날</item>
+        <item>LGU+</item>
+        <item>이니시스</item>
+        <item>나이스페이</item>
+        <item>페이앱</item>
+        <item>네이버페이</item>
+        <item>카카오페이</item>
+        <item>TPAY</item>
+        <item>페이레터</item>
+        <item>KICC</item>
+        <item>웰컴페이먼츠</item>
+    </string-array>
+
+    <string-array name="method">
+        <item>카드결제</item>
+        <item>휴대폰소액결제</item>
+        <item>가상계좌</item>
+        <item>계좌이체</item>
+        <item>카드정기결제</item>
+        <item>간편결제</item>
+        <item>주문결제</item>
+        <item>부트페이 간편결제</item>
+        <item>카카오페이</item>
+        <item>네이버페이</item>
+        <item>페이코</item>
+        <item>본인인증</item>
+    </string-array>
+
+</resources>

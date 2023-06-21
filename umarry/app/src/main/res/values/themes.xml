@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Umarry" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/pink_100</item>
+        <item name="colorPrimaryVariant">@color/pink_300</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Umarry" parent="Base.Theme.Umarry" />
+    <style name="splash" parent="Theme.SplashScreen">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/marryu</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="windowSplashScreenBackground">@color/pink_100</item>
+    </style>
+</resources>

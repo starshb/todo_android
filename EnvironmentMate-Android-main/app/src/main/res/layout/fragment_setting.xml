@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".views.main.setting.SettingFragment">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/setting_iv_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="86dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_enterprises_logo_setting" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="삼성"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_iv_logo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_env_score_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:text="환경 지수"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/setting_view_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_env_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="72점"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="@id/setting_tv_env_score_text"
+                app:layout_constraintStart_toStartOf="@id/setting_tv_env_score_text"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_env_score_text" />
+
+            <View
+                android:id="@+id/setting_view_1"
+                android:layout_width="1dp"
+                android:layout_height="73dp"
+                android:background="#DEDEDE"
+                app:layout_constraintBottom_toBottomOf="@id/setting_tv_env_score"
+                app:layout_constraintEnd_toStartOf="@id/setting_tv_completed_mission_text"
+                app:layout_constraintStart_toEndOf="@id/setting_tv_env_score_text"
+                app:layout_constraintTop_toTopOf="@id/setting_tv_env_score_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_completed_mission_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:text="완료 미션"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/setting_view_1"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_completed_mission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="0개"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="@id/setting_tv_completed_mission_text"
+                app:layout_constraintStart_toStartOf="@id/setting_tv_completed_mission_text"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_completed_mission_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_my_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.65dp"
+                android:layout_marginTop="49dp"
+                android:text="내 정보"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_env_score" />
+
+            <View
+                android:id="@+id/setting_view_2"
+                android:layout_width="0dp"
+                android:layout_height="7dp"
+                android:layout_marginTop="14.26dp"
+                android:background="#EBEBEB"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_my_info_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_revise_enterprise_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20.82dp"
+                android:layout_marginTop="14.57dp"
+                android:layout_marginEnd="20.67dp"
+                android:text="기업 정보 수정"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="14dp"
+                app:drawableEndCompat="@drawable/ic_setting_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_view_2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_invite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20.82dp"
+                android:layout_marginTop="29.14dp"
+                android:layout_marginEnd="20.67dp"
+                android:text="다른 기업 초대"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="14dp"
+                app:drawableEndCompat="@drawable/ic_setting_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_revise_enterprise_info" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_setting_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.65dp"
+                android:layout_marginTop="29.65dp"
+                android:text="설정"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_invite" />
+
+            <View
+                android:id="@+id/setting_view_3"
+                android:layout_width="0dp"
+                android:layout_height="7dp"
+                android:layout_marginTop="14.26dp"
+                android:background="#EBEBEB"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_setting_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_push"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20.82dp"
+                android:layout_marginTop="14.57dp"
+                android:layout_marginEnd="20.67dp"
+                android:text="푸쉬 알림"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="14dp"
+                app:drawableEndCompat="@drawable/ic_setting_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_view_3" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_notice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20.82dp"
+                android:layout_marginTop="29.14dp"
+                android:layout_marginEnd="20.67dp"
+                android:text="공지사항"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="14dp"
+                app:drawableEndCompat="@drawable/ic_setting_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_push" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_rule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20.82dp"
+                android:layout_marginTop="29.14dp"
+                android:layout_marginEnd="20.67dp"
+                android:text="이용약관"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="14dp"
+                app:drawableEndCompat="@drawable/ic_setting_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_notice" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/setting_tv_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20.82dp"
+                android:layout_marginTop="29.14dp"
+                android:layout_marginEnd="20.67dp"
+                android:layout_marginBottom="41.77dp"
+                android:text="문의하기"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="14dp"
+                app:drawableEndCompat="@drawable/ic_setting_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_tv_rule" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

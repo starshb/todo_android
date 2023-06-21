@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="types">
+        <item>차트 선택</item>
+        <item>지역대비 전체 온실 배출량 비교</item>
+        <item>내 업체의 지역 대비 사용량 비교</item>
+        <item>전국 온실가스 배출량 대비 내 업체의 업종 비교</item>
+        <item>해당 업종의 탄소 배출량과 해당 업체의 사용량 비교</item>
+        <item>내 업체에 해당하는 업종의 에너지 종류별 사용량 분석 결과</item>
+    </string-array>
+</resources>

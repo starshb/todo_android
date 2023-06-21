@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.mtjin.envmate.views.sign_in.SignInViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.sign_in.SignInActivity">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sign_in_iv_text_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_logo_title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sign_in_iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="@id/sign_in_iv_text_logo"
+            app:layout_constraintStart_toStartOf="@+id/sign_in_iv_text_logo"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_iv_text_logo"
+            app:srcCompat="@drawable/ic_login_logo" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/sign_in_et_email"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="51.49dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/bg_et_stroke_gray_999999_radius_4dp"
+            android:hint="이메일"
+            android:inputType="textEmailAddress"
+            android:paddingStart="29dp"
+            android:text="@={vm.email}"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_iv_logo" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/sign_in_et_pw"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/bg_et_stroke_gray_999999_radius_4dp"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            android:paddingStart="29dp"
+            android:text="@={vm.pw}"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_et_email" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sign_in_btn_start"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/bg_btn_solid_dark_gray_333333_radius_8dp"
+            android:onClick="@{()->vm.requestLogin()}"
+            android:text="기업 코드로 시작하기"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_et_pw" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_in_tv_sign_up_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아직 회원이 아니신가요? "
+            android:textColor="@color/gray_999999"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/sign_in_tv_sign_up"
+            app:layout_constraintEnd_toStartOf="@id/sign_in_tv_sign_up"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sign_in_tv_sign_up" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_in_tv_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="53dp"
+            android:onClick="@{()->vm.goSignUp()}"
+            android:text="@string/sign_up_text"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/sign_in_tv_sign_up_question"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_btn_start" />
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="@{vm.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

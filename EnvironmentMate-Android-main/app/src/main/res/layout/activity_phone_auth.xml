@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.mtjin.envmate.views.sign_up.phone_auth.PhoneAuthViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.sign_up.phone_auth.PhoneAuthActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/phone_auth_tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20.83dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/phone_auth_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textColor="@color/dark_gray_333333"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/phone_auth_tv_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/phone_auth_tv_cancel" />
+
+        <View
+            android:id="@+id/phone_auth_view_top"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/light_gray_F5F5F5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_auth_tv_cancel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/phone_auth_tv_phone_auth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="휴대폰 인증"
+            android:textColor="@color/dark_gray_333333"
+            android:textSize="21dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_auth_view_top" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/phone_auth_tv_phone_auth_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:text="본인 확인 및 중복 가입을 방지하기 위한 절차입니다.\n휴대폰 번호를 입력해주세요."
+            android:textColor="@color/gray_999999"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/phone_auth_tv_phone_auth"
+            app:layout_constraintTop_toBottomOf="@id/phone_auth_tv_phone_auth" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/phone_auth_tv_phone_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="33dp"
+            android:text="휴대폰 번호"
+            android:textColor="@color/gray_858585"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_auth_tv_phone_auth_content" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/phone_auth_et_phone_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:hint="01012345678"
+            android:inputType="numberDecimal"
+            android:text="@={vm.etPhoneNum}"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toStartOf="@id/phone_auth_btn_auth"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_auth_tv_phone_num" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/phone_auth_btn_auth"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/bg_btn_solid_dark_gray_333333_radius_8dp"
+            android:onClick="@{()->vm.requestPhoneAuth()}"
+            android:text="인증하기"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@id/phone_auth_et_phone_num"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/phone_auth_et_phone_num" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/phone_auth_tv_auth_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="55dp"
+            android:text="인증번호"
+            android:textColor="@color/gray_858585"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_auth_et_phone_num" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/phone_auth_et_auth_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:hint="숫자 6자리"
+            android:inputType="numberDecimal"
+            android:maxLength="6"
+            android:text="@={vm.etAuthNum}"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toStartOf="@id/phone_auth_btn_auth"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_auth_tv_auth_num" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/phone_auth_btn_consent"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/bg_btn_solid_dark_gray_333333_radius_8dp"
+            android:onClick="@{()->vm.authComplete()}"
+            android:text="인증완료"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
